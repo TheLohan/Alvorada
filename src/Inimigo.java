@@ -1,5 +1,6 @@
 public abstract class Inimigo implements IObstaculo{
     protected int pv;
+    protected String nome;
 
     public Inimigo(int pv) {
         setPv(pv);

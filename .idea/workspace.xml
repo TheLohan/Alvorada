@@ -4,13 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="498e98c5-c376-40ce-bcdf-e165fb4760bc" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Inimigo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Dorivan.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Dorivan.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Personagem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Personagem.java" afterDir="false" />
+    <list default="true" id="498e98c5-c376-40ce-bcdf-e165fb4760bc" name="Changes" comment="V0.3: Criação da interface obstaculo e classe inimigo">
+      <change beforePath="$PROJECT_DIR$/src/Inimigo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inimigo.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,9 +56,32 @@
       <updated>1688166990934</updated>
       <workItem from="1688166992042" duration="4049000" />
     </task>
+    <task id="LOCAL-00001" summary="V0.3: Criação da interface obstaculo e classe inimigo">
+      <created>1688675855881</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1688675855881</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="V0.3: Criação da interface obstaculo e classe inimigo" />
+    <option name="LAST_COMMIT_MESSAGE" value="V0.3: Criação da interface obstaculo e classe inimigo" />
   </component>
 </project>
