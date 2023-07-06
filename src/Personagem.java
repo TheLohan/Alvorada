@@ -70,4 +70,6 @@ public abstract class Personagem implements IPersonagem{
         inventario.add(item);
     }
 
+    public abstract void atacar();
+
 }
