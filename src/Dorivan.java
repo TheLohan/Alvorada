@@ -12,4 +12,9 @@ public class Dorivan extends Personagem implements IPersonagem{
     public void poderEspecial() {
 
     }
+
+    @Override
+    public void atacar() {
+
+    }
 }
