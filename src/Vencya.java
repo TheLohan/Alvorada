@@ -16,9 +16,10 @@ final public class Vencya extends Personagem implements IPersonagem{
     public void poderEspecial(Inimigo inimigo) {
         Random dado = new Random();
         int ataque = dado.nextInt(1, 8);
-        inimigo.pv -= ataque;
-        pm -= 4;
-        System.out.println(inimigo.getNome() + " recebeu " + ataque + " de dano\nVida total: " + inimigo.getPv());
+        ataque += dado.nextInt(1, 6);
+        inimigo.setPv(inimigo.getPv()-ataque);
+        setPm(getPm()-4);
+        System.out.println(inimigo.getNome() + " recebeu " + ataque + " de dano da espada potente\nVida total: " + inimigo.getPv());
         System.out.println("Vencya perde 4 pontos de mana ao usar seu poder especial\nMana total: " + getPm());
     }
 
@@ -26,7 +27,7 @@ final public class Vencya extends Personagem implements IPersonagem{
     public void atacar(Inimigo inimigo) {
         Random dado = new Random();
         int ataque = dado.nextInt(1, 6);
-        inimigo.pv -= ataque;
+        inimigo.setPv(inimigo.getPv()-ataque);
         System.out.println(inimigo.getNome() + " recebeu " + ataque + " de dano\nVida total: " + inimigo.getPv() + "\n");
     }
 }

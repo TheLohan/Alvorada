@@ -8,10 +8,10 @@ public abstract class Personagem implements IPersonagem{
     protected ArrayList<Item> inventario = new ArrayList<>();
 
     public Personagem(String nome, int idade, int pm, int pv) {
-        this.nome = nome;
-        this.idade = idade;
-        this.pm = pm;
-        this.pv = pv;
+        setNome(nome);
+        setIdade(idade);
+        setPm(pm);
+        setPv(pv);
     }
 
     public String getNome() {
