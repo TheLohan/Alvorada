@@ -2,8 +2,18 @@ public abstract class Inimigo implements IObstaculo{
     protected int pv;
     protected String nome;
 
-    public Inimigo(int pv) {
+    public Inimigo(int pv, String nome) {
         setPv(pv);
+        setNome(nome);
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public boolean setNome(String nome) {
+        this.nome = nome;
+        return true;
     }
 
     public int getPv() {

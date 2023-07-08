@@ -63,13 +63,13 @@ public abstract class Personagem implements IPersonagem{
     public abstract void contarHistoria();
 
     @Override
-    public abstract void poderEspecial();
+    public abstract void poderEspecial(Inimigo inimigo);
 
     @Override
     public void adicionarItem(Item item){
         inventario.add(item);
     }
 
-    public abstract void atacar();
+    public abstract void atacar(Inimigo inimigo);
 
 }

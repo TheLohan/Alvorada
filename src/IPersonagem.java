@@ -1,5 +1,5 @@
 public interface IPersonagem {
     void contarHistoria();
-    void poderEspecial();
+    void poderEspecial(Inimigo inimigo);
     void adicionarItem(Item item);
 }
