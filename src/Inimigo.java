@@ -1,6 +1,11 @@
+import java.util.*;
+
 public abstract class Inimigo implements IObstaculo{
     protected int pv;
     protected String nome;
+
+    protected int ataque;
+    protected Random dado = new Random();
 
     public Inimigo(int pv, String nome) {
         setPv(pv);

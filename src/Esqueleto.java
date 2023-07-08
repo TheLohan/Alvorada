@@ -1,7 +1,5 @@
 import java.util.*;
-public class Esqueleto extends Inimigo implements IObstaculo{
-    int ataque;
-    Random dado = new Random();
+final public class Esqueleto extends Inimigo implements IObstaculo{
     public Esqueleto(){
         super(15, "Esqueleto");
     }

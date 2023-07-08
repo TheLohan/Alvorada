@@ -31,15 +31,32 @@ public class Main {
         vencya.contarHistoria();
         dorivan.contarHistoria();
 
-        //TODO: tratar as excessões (InputMismatchException e EscolhaPersonagemException)
         //Escolha do personagem
-        int escolhaPersonagem;
+        int escolhaPersonagem = 0;
+        boolean erro;
+        System.out.println("Olá jogador, escolha seu personagem. " +
+                "\nDigite 1 para jogar com a Vencya, A Guerreira" +
+                "\nDigite 2 para jogar com Dorivan, O Clérigo");
         do {
-                System.out.println("Olá jogador, escolha seu personagem. " +
-                        "\nDigite 1 para jogar com a Vencya, A Guerreira" +
-                        "\nDigite 2 para jogar com Dorivan, O Clérigo");
+            erro = false;
+            try{
                 escolhaPersonagem = scanner.nextInt();
-        } while (escolhaPersonagem != 1 && escolhaPersonagem != 2);
+                if(escolhaPersonagem != 1 && escolhaPersonagem != 2){
+                    throw new EscolhaPersonagemException("Você deve entrar com um personagem válido");
+                }
+            }catch (InputMismatchException e){
+                scanner.nextLine();
+                System.out.println("Entrada inválida");
+                erro = true;
+            }catch (EscolhaPersonagemException e){
+                System.out.println(e.getMessage());
+                erro = true;
+            }
+            catch (Exception e){
+                System.out.println("Erro");
+                erro = true;
+            }
+        } while (erro);
 
         switch (escolhaPersonagem){
             case 1:
