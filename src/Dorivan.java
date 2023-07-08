@@ -17,10 +17,11 @@ public class Dorivan extends Personagem implements IPersonagem{
         int cura = dado.nextInt(1, 4);
         pv += cura;
         pm -= 5;
-        System.out.println("Dorivan recebe " + cura + " ponto(s) de vida após se benzer\nVida total: " + getPv() +
-                "\tMana total: " + getPm());
+        System.out.println("Dorivan clama ao Deus do Sol: \"Deus sol, virtutem tuam da mihi\".");
+        System.out.println("Dorivan recebe " + cura + " ponto(s) de vida após se benzer\t - Vida total: " + getPv() +
+                "\t - Mana total: " + getPm());
         inimigo.pv -= 2;
-        System.out.println("O inimigo é afetado pela purificação de Dorivan e perde 2 pontos de vida\nVida total: " +
+        System.out.println("O inimigo é afetado pela purificação de Dorivan e perde 2 pontos de vida\t - Vida total: " +
                 inimigo.getPv() + "\n");
     }
 
@@ -29,6 +30,6 @@ public class Dorivan extends Personagem implements IPersonagem{
         Random dado = new Random();
         int ataque = dado.nextInt(1, 4);
         inimigo.pv -= ataque;
-        System.out.println(inimigo.getNome() + " recebeu " + ataque + " de dano\nVida total: " + inimigo.getPv() + "\n");
+        System.out.println(inimigo.getNome() + " recebeu " + ataque + " de dano\t - Vida total: " + inimigo.getPv() + "\n");
     }
 }

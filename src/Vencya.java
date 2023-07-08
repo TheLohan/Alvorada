@@ -8,7 +8,7 @@ final public class Vencya extends Personagem implements IPersonagem{
     @Override
     public void contarHistoria() {
         System.out.println("Vencya, herdeira de uma nobre linhagem de guerreiros muito importantes do passado, " +
-                "mas que caíram no esquecimento. \nEla busca se tornar a maior guerreira de sua geração e " +
+                "mas que caíram no esquecimento.\nEla busca se tornar a maior guerreira de sua geração e " +
                 "retomar o prestígio que seus antepassados possuíam.\n");
     }
 
@@ -18,8 +18,9 @@ final public class Vencya extends Personagem implements IPersonagem{
         int ataque = dado.nextInt(1, 8);
         inimigo.pv -= ataque;
         pm -= 4;
-        System.out.println(inimigo.getNome() + " recebeu " + ataque + " de dano\nVida total: " + inimigo.getPv());
-        System.out.println("Vencya perde 4 pontos de mana ao usar seu poder especial\nMana total: " + getPm());
+        System.out.println("Vencya ergue sua espada e atinge o inimigo em cheio.\n");
+        System.out.println(inimigo.getNome() + " recebeu " + ataque + " de dano\t - Vida total: " + inimigo.getPv());
+        System.out.println("Vencya perde 4 pontos de mana ao usar seu poder especial\t - Mana total: " + getPm());
     }
 
     @Override
@@ -27,6 +28,7 @@ final public class Vencya extends Personagem implements IPersonagem{
         Random dado = new Random();
         int ataque = dado.nextInt(1, 6);
         inimigo.pv -= ataque;
-        System.out.println(inimigo.getNome() + " recebeu " + ataque + " de dano\nVida total: " + inimigo.getPv() + "\n");
+        System.out.println(inimigo.getNome() + " recebeu " + ataque + " de dano\t - Vida total: " + inimigo.getPv() +
+                "\n");
     }
 }
