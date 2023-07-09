@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="498e98c5-c376-40ce-bcdf-e165fb4760bc" name="Changes" comment="- método atacar e poder especial (vencya e dorivan)&#10;- método atacar (esqueleto)" />
+    <list default="true" id="498e98c5-c376-40ce-bcdf-e165fb4760bc" name="Changes" comment="V0.5: Jogo basicamente implementado, faltando =sistema de itens e correções">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Jogo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Jogo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -93,7 +97,14 @@
       <option name="project" value="LOCAL" />
       <updated>1688844901489</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="V0.5: Jogo basicamente implementado, faltando =sistema de itens e correções">
+      <created>1688877133267</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1688877133267</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -114,7 +125,8 @@
     <MESSAGE value="V0.3: Criação da interface obstaculo e classe inimigo" />
     <MESSAGE value="métodod atacar Dorivan" />
     <MESSAGE value="- método atacar e poder especial (vencya e dorivan)&#10;- método atacar (esqueleto)" />
-    <option name="LAST_COMMIT_MESSAGE" value="- método atacar e poder especial (vencya e dorivan)&#10;- método atacar (esqueleto)" />
+    <MESSAGE value="V0.5: Jogo basicamente implementado, faltando =sistema de itens e correções" />
+    <option name="LAST_COMMIT_MESSAGE" value="V0.5: Jogo basicamente implementado, faltando =sistema de itens e correções" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

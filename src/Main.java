@@ -57,10 +57,10 @@ public class Main {
 
         switch (escolhaPersonagem){
             case 1:
-                new Jogo(esqueleto, zumbi, necromante, vencya).start();
+                Jogo.start(esqueleto, zumbi, necromante, vencya);
                 break;
             case 2:
-                new Jogo(esqueleto, zumbi, necromante, dorivan).start();
+                Jogo.start(esqueleto, zumbi, necromante, dorivan);
                 break;
         }
     }

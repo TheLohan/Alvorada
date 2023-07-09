@@ -1,24 +1,11 @@
 import java.util.Scanner;
 
 final public class Jogo {
-    private Esqueleto esqueleto;
-    private Zumbi zumbi;
-    private Necromante necromante;
-    private Personagem personagem;
-
-    private Scanner scanner = new Scanner(System.in);
-
-    public Jogo(Esqueleto esqueleto, Zumbi zumbi, Necromante necromante, Personagem personagem) {
-        this.esqueleto = esqueleto;
-        this.zumbi = zumbi;
-        this.necromante = necromante;
-        this.personagem = personagem;
-    }
-
-    public void start(){
+    public static void start(Esqueleto esqueleto, Zumbi zumbi, Necromante necromante, Personagem personagem){
         boolean foiSucesso = true;
         Inimigo[] inimigos = {esqueleto, zumbi, necromante};
         int escolha;
+        Scanner scanner = new Scanner(System.in);
         for(int i = 0; i < 3; i++){
             inimigos[i].contaHistoria(personagem);
             do{
@@ -40,9 +27,13 @@ final public class Jogo {
                     break;
                 }
             }while(inimigos[i].getPv() > 0);
+            if(!foiSucesso){
+                break;
+            }
         }
         if(foiSucesso){
-            System.out.println("vc venceu");
+            System.out.println(personagem.getNome()+" venceu o necromante, o banindo deste mundo. Casou-se\n" +
+                    "com a filha do prefeito, e foi reconhecido(a) como herói/heroína por todo o reino.");
         }
         else if(!foiSucesso) {
             System.out.println(personagem.getNome() + " foi devorade por uma horda de mortos-vivos, o\n" +
