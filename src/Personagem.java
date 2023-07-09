@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Scanner;
 
 public abstract class Personagem implements IPersonagem{
@@ -9,6 +10,7 @@ public abstract class Personagem implements IPersonagem{
     protected int pecasOuro;
     protected int ataqueAdicional;
     protected ArrayList<Item> inventario = new ArrayList<>();
+    protected HashMap<Integer, Item> usaveis = new HashMap<Integer, Item>();
 
     public Personagem(String nome, int idade, int pm, int pv) {
         setNome(nome);
@@ -110,16 +112,47 @@ public abstract class Personagem implements IPersonagem{
     }
 
     public void usarItem(){
+        int escolha;
         Scanner scanner = new Scanner(System.in);
         int i = 1;
-        for(Item item : inventario){
-            if(item instanceof PocaoCura || item instanceof PocaoMana){
-                System.out.println("Digite " + i+ " para usar " + item.getNome() + "- Quantidade: " + item.getQuantidade());
-                i++;
+        if (!inventario.contains(new PocaoCura()) && !inventario.contains(new PocaoMana())) {
+            System.out.println("Inventário vazio.");
+        } else {
+            for (Item item : inventario) {
+                if (item instanceof PocaoCura || item instanceof PocaoMana) {
+                    System.out.println("Digite " + i + " para usar " + item.getNome() + " - Quantidade: " + item.getQuantidade());
+                    usaveis.put(i, item);
+                    i++;
+                }
+            }
+            escolha = scanner.nextInt();
+
+            if (usaveis.containsKey(escolha)){
+                if (usaveis.get(escolha).getQuantidade() > 0) {
+                    if (usaveis.get(escolha).getNome().equals("Poção de Cura")) {
+                        pv += usaveis.get(escolha).gerarEfeito();
+                        usaveis.get(escolha).quantidade--;
+                        System.out.println("- Vida total: " + getPv());
+
+                        if (usaveis.get(escolha).getQuantidade() == 0) {
+                            usaveis.remove(escolha);
+                            inventario.remove(new PocaoCura());
+                        }
+                    } else if (usaveis.get(escolha).getNome().equals("Poção de Mana")) {
+                        pm += usaveis.get(escolha).gerarEfeito();
+                        usaveis.get(escolha).quantidade--;
+                        System.out.println("- Mana total: " + getPm());
+
+                        if (usaveis.get(escolha).getQuantidade() == 0) {
+                            usaveis.remove(escolha);
+                            inventario.remove(new PocaoMana());
+                        }
+                    }
+                }
             }
         }
-        int escolha = scanner.nextInt();
     }
+
     public abstract void atacar(Inimigo inimigo);
 
 }

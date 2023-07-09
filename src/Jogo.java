@@ -6,6 +6,16 @@ final public class Jogo {
     private static Scanner scanner = new Scanner(System.in);
 
     public static void contarHistoria(){
+        System.out.println("\n" +
+                "   ▄████████  ▄█        ▄█    █▄   ▄██████▄     ▄████████    ▄████████ ████████▄     ▄████████ \n" +
+                "  ███    ███ ███       ███    ███ ███    ███   ███    ███   ███    ███ ███   ▀███   ███    ███ \n" +
+                "  ███    ███ ███       ███    ███ ███    ███   ███    ███   ███    ███ ███    ███   ███    ███ \n" +
+                "  ███    ███ ███       ███    ███ ███    ███  ▄███▄▄▄▄██▀   ███    ███ ███    ███   ███    ███ \n" +
+                "▀███████████ ███       ███    ███ ███    ███ ▀▀███▀▀▀▀▀   ▀███████████ ███    ███ ▀███████████ \n" +
+                "  ███    ███ ███       ███    ███ ███    ███ ▀███████████   ███    ███ ███    ███   ███    ███ \n" +
+                "  ███    ███ ███▌    ▄ ███    ███ ███    ███   ███    ███   ███    ███ ███   ▄███   ███    ███ \n" +
+                "  ███    █▀  █████▄▄██  ▀██████▀   ▀██████▀    ███    ███   ███    █▀  ████████▀    ███    █▀  \n" +
+                "             ▀                                 ███    ███                                      \n");
         System.out.println("A Vila de Yu’Myriin, é o mais recente alvo das grandes hordas de mortos-vivos que têm " +
                 "infestado os vilarejos locais. \nO prefeito da vila, aterrorizado com a quantidade de monstros, está " +
                 "contratando guerreiros habilidosos para lidar com a infestação, \npagando uma boa quantia em dinheiro " +
@@ -15,7 +25,7 @@ final public class Jogo {
     public static int escolherPersonagem(){
         boolean erro;
         int escolhaPersonagem = 0;
-        System.out.println("Olá jogador, escolha seu personagem. " +
+        System.out.println("Olá jogador, escolha seu personagem: " +
                 "\nDigite 1 para jogar com a Vencya, A Guerreira" +
                 "\nDigite 2 para jogar com Dorivan, O Clérigo");
 
@@ -44,14 +54,14 @@ final public class Jogo {
 
     public static void comprarItem(Personagem personagem){
         int escolha = 1;
-        System.out.println("O prefeito lhe deu 100 peças de ouro adiantado para você se preparar. O que quer comprar?");
+        System.out.println("\nO prefeito lhe deu 100 peças de ouro adiantado para você se preparar. O que quer comprar?");
         System.out.println("1 - Espada aprimorada - Concede +2 de dano - 60 Peças de Ouro");
         System.out.println("2 - Armadura aprimorada - concede +10 de vida - 80 Peças de Ouro");
         System.out.println("3 - Poção de Cura - Cura 2d6 de vida - 20 Peças de Ouro");
         System.out.println("4 - Poção de mana - Restaura 2d4 de mana - 20 Peças de ouro");
         System.out.println("Digide 0 se quiser parar de comprar");
         do{
-            System.out.println("Peças de ouro restantes: " + personagem.getPecasOuro());
+            System.out.println("\nPeças de ouro restantes: " + personagem.getPecasOuro());
             System.out.println("Vou querer: ");
             escolha = scanner.nextInt();
             switch (escolha) {
@@ -69,7 +79,7 @@ final public class Jogo {
         for(int i = 0; i < 3; i++){
             inimigos[i].contaHistoria(personagem);
             do{
-                System.out.println("Digite 1 para atacar \nDigite 2 para usar o poder especial\nDigite 3 para usar um item");
+                System.out.println("Digite 1 para atacar\nDigite 2 para usar o poder especial\nDigite 3 para usar um item");
                 do{
                     escolha = scanner.nextInt();
                 }while (escolha != 1 && escolha != 2 && escolha != 3);
@@ -99,8 +109,8 @@ final public class Jogo {
                     "com a filha do prefeito, e foi reconhecido(a) como herói/heroína por todo o reino.");
         }
         else if(!foiSucesso) {
-            System.out.println(personagem.getNome() + " foi devorade por uma horda de mortos-vivos, o\n" +
-                    "necromante espalhou sua influência pelo mundo e ficou mais poderoso.");
+            System.out.println(personagem.getNome() + " foi devorado(a) por uma horda de mortos-vivos, " +
+                    "o necromante espalhou sua influência pelo mundo e ficou ainda mais poderoso.");
         }
     }
 }

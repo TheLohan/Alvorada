@@ -2,7 +2,7 @@ import java.util.Random;
 
 public final class PocaoCura extends Item{
     public PocaoCura() {
-        super("Poção de cura", "Cura 2d6 de vida.", 1,20);
+        super("Poção de Cura", "Cura 2d6 de vida.", 1,20);
     }
 
     @Override
