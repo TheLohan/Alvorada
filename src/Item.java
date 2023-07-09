@@ -1,14 +1,16 @@
 import java.util.Objects;
 
-public class Item {
-    private String nome;
-    private String descricao;
-    private int quantidade;
+public abstract class Item implements IItem{
+    protected String nome;
+    protected String descricao;
+    protected int quantidade;
+    protected int preco;
 
-    public Item(String nome, String descricao, int quantidade) {
+    public Item(String nome, String descricao, int quantidade, int preco) {
         setNome(nome);
         setDescricao(descricao);
         setQuantidade(quantidade);
+        setPreco(preco);
     }
 
     public String getNome() {
@@ -46,6 +48,20 @@ public class Item {
         this.quantidade = quantidade;
         return true;
     }
+
+    public int getPreco() {
+        return preco;
+    }
+
+    public boolean setPreco(int preco) {
+        if(preco < 0){
+            throw new IllegalArgumentException("Preço deve ser maior que zero");
+        }
+        this.preco = preco;
+        return true;
+    }
+
+    public abstract int gerarEfeito();
 
     @Override
     public boolean equals(Object o) {

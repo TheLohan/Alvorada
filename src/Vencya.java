@@ -19,8 +19,7 @@ final public class Vencya extends Personagem implements IPersonagem{
         }
         else{
             Random dado = new Random();
-            int ataque = dado.nextInt(1, 8);
-            ataque += dado.nextInt(1, 6);
+            int ataque = Dado.rolarDados(2,8) + ataqueAdicional;
             inimigo.setPv(inimigo.getPv()-ataque);
             setPm(getPm()-4);
             System.out.println(inimigo.getNome() + " recebeu " + ataque + " de dano da espada potente\nVida total: " + inimigo.getPv());
@@ -30,8 +29,7 @@ final public class Vencya extends Personagem implements IPersonagem{
 
     @Override
     public void atacar(Inimigo inimigo) {
-        Random dado = new Random();
-        int ataque = dado.nextInt(1, 6);
+        int ataque = Dado.rolarDados(1,8) + ataqueAdicional;
         inimigo.setPv(inimigo.getPv()-ataque);
         System.out.println(inimigo.getNome() + " recebeu " + ataque + " de dano\nVida total: " + inimigo.getPv() + "\n");
     }

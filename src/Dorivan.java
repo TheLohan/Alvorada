@@ -13,8 +13,7 @@ public class Dorivan extends Personagem implements IPersonagem{
 
     @Override
     public void poderEspecial(Inimigo inimigo) {
-        Random dado = new Random();
-        int cura = dado.nextInt(1, 4);
+        int cura = Dado.rolarDados(1,4);
         if(getPv()+cura > 25){
             cura = (getPv() + cura) - 25;
         }
@@ -29,8 +28,7 @@ public class Dorivan extends Personagem implements IPersonagem{
 
     @Override
     public void atacar(Inimigo inimigo) {
-        Random dado = new Random();
-        int ataque = dado.nextInt(1, 4);
+        int ataque = Dado.rolarDados(1,6) + ataqueAdicional;
         inimigo.setPv(inimigo.getPv()-ataque);
         System.out.println(inimigo.getNome() + " recebeu " + ataque + " de dano\nVida total: " + inimigo.getPv() + "\n");
     }

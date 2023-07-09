@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public abstract class Personagem implements IPersonagem{
     protected String nome;
@@ -6,6 +7,7 @@ public abstract class Personagem implements IPersonagem{
     protected int pm;
     protected int pv;
     protected int pecasOuro;
+    protected int ataqueAdicional;
     protected ArrayList<Item> inventario = new ArrayList<>();
 
     public Personagem(String nome, int idade, int pm, int pv) {
@@ -14,6 +16,7 @@ public abstract class Personagem implements IPersonagem{
         setPm(pm);
         setPv(pv);
         setPecasOuro(100);
+        ataqueAdicional = 0;
     }
 
     public String getNome() {
@@ -82,9 +85,17 @@ public abstract class Personagem implements IPersonagem{
     @Override
     public void adicionarItem(Item item){
         if(!inventario.contains(item)){
+            pecasOuro -= item.getPreco();
             inventario.add(item);
+            if(item instanceof Espada){
+                ataqueAdicional += item.gerarEfeito();
+            }
+            else if (item instanceof Armadura){
+                pv += item.gerarEfeito();
+            }
         }
         else {
+            pecasOuro -= item.getPreco();
             Item itemClone = inventario.get(inventario.indexOf(item));
             inventario.remove(item);
             itemClone.setQuantidade(itemClone.getQuantidade() + 1);
@@ -92,6 +103,23 @@ public abstract class Personagem implements IPersonagem{
         }
     }
 
+    public void imprimirInventario(){
+        for(Item item : inventario){
+            System.out.println(item.getNome());
+        }
+    }
+
+    public void usarItem(){
+        Scanner scanner = new Scanner(System.in);
+        int i = 1;
+        for(Item item : inventario){
+            if(item instanceof PocaoCura || item instanceof PocaoMana){
+                System.out.println("Digite " + i+ " para usar " + item.getNome() + "- Quantidade: " + item.getQuantidade());
+                i++;
+            }
+        }
+        int escolha = scanner.nextInt();
+    }
     public abstract void atacar(Inimigo inimigo);
 
 }
