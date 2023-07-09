@@ -15,21 +15,27 @@ public class Dorivan extends Personagem implements IPersonagem{
     public void poderEspecial(Inimigo inimigo) {
         int cura = Dado.rolarDados(1,4);
         if(getPv()+cura > 25){
-            cura = (getPv() + cura) - 25;
+            cura = getPv() + cura;
         }
         setPv(getPv() + cura);
         setPm(this.pm - 5);
         System.out.println("Dorivan recebe " + cura + " ponto(s) de vida após se benzer\t - Vida total: " + getPv() +
                 "\t - Mana total: " + getPm());
         inimigo.setPv(inimigo.getPv()-2);
-        System.out.println("O inimigo é afetado pela purificação de Dorivan e perde 2 pontos de vida\t - Vida total: " +
+        if (inimigo.getPv() > 0)
+            System.out.println("O inimigo é afetado pela purificação de Dorivan e perde 2 pontos de vida\t - Vida total: " +
                 inimigo.getPv() + "\n");
+        else
+            System.out.println("O inimigo é afetado pela purificação de Dorivan, perde 2 pontos de vida e é derrotado\n");
     }
 
     @Override
     public void atacar(Inimigo inimigo) {
         int ataque = Dado.rolarDados(1,6) + ataqueAdicional;
         inimigo.setPv(inimigo.getPv()-ataque);
-        System.out.println(inimigo.getNome() + " recebeu " + ataque + " de dano\t - Vida total: " + inimigo.getPv() + "\n");
+        if (inimigo.getPv() > 0)
+            System.out.println(inimigo.getNome() + " recebeu " + ataque + " de dano\t - Vida total: " + inimigo.getPv());
+        else
+            System.out.println(inimigo.getNome() + " recebeu " + ataque + " de dano e foi derrotado.");
     }
 }

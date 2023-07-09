@@ -3,7 +3,7 @@ import java.util.Random;
 public final class PocaoMana extends Item{
 
     public PocaoMana() {
-        super("Poção de Mana", "Restaura 2d4 de Mana.", 1, 20);
+        super("Poção de Mana", "Restaura 2d4 de Mana.", 1, 10);
     }
 
     @Override

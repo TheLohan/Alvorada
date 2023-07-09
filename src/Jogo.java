@@ -57,8 +57,8 @@ final public class Jogo {
         System.out.println("\nO prefeito lhe deu 100 peças de ouro adiantado para você se preparar. O que quer comprar?");
         System.out.println("1 - Espada aprimorada - Concede +2 de dano - 60 Peças de Ouro");
         System.out.println("2 - Armadura aprimorada - concede +10 de vida - 80 Peças de Ouro");
-        System.out.println("3 - Poção de Cura - Cura 2d6 de vida - 20 Peças de Ouro");
-        System.out.println("4 - Poção de mana - Restaura 2d4 de mana - 20 Peças de ouro");
+        System.out.println("3 - Poção de Cura - Cura 2d6 de vida - 10 Peças de Ouro");
+        System.out.println("4 - Poção de mana - Restaura 2d4 de mana - 10 Peças de ouro");
         System.out.println("Digide 0 se quiser parar de comprar");
         do{
             System.out.println("\nPeças de ouro restantes: " + personagem.getPecasOuro());
@@ -70,7 +70,7 @@ final public class Jogo {
                 case 3 -> personagem.adicionarItem(new PocaoCura());
                 case 4 -> personagem.adicionarItem(new PocaoMana());
             }
-        }while(personagem.getPecasOuro() >= 20 && escolha != 0);
+        }while(personagem.getPecasOuro() >= 10 && escolha != 0);
     }
     public static void start(Esqueleto esqueleto, Zumbi zumbi, Necromante necromante, Personagem personagem){
         boolean foiSucesso = true;
@@ -105,7 +105,7 @@ final public class Jogo {
             }
         }
         if(foiSucesso){
-            System.out.println(personagem.getNome()+" venceu o necromante, o banindo deste mundo. Casou-se\n" +
+            System.out.println(personagem.getNome()+" venceu o necromante, o banindo deste mundo. Casou-se" +
                     "com a filha do prefeito, e foi reconhecido(a) como herói/heroína por todo o reino.");
         }
         else if(!foiSucesso) {

@@ -15,14 +15,16 @@ final public class Vencya extends Personagem implements IPersonagem{
     @Override
     public void poderEspecial(Inimigo inimigo) {
         if(getPm() < 4){
-            System.out.println("Você não tem PM");
-        }
-        else{
+            System.out.println("Você não tem pontos de mana suficiente");
+        } else {
             Random dado = new Random();
-            int ataque = Dado.rolarDados(2,8) + ataqueAdicional;
-            inimigo.setPv(inimigo.getPv()-ataque);
-            setPm(getPm()-4);
-            System.out.println(inimigo.getNome() + " recebeu " + ataque + " de dano da espada potente\t - Vida total: " + inimigo.getPv());
+            int ataque = Dado.rolarDados(1, 8) + ataqueAdicional;
+            inimigo.setPv(inimigo.getPv() - ataque);
+            setPm(getPm() - 4);
+            if (inimigo.getPv() > 0)
+                System.out.println(inimigo.getNome() + " recebeu " + ataque + " de dano da espada potente\t - Vida total: " + inimigo.getPv());
+            else
+                System.out.println(inimigo.getNome() + " recebeu " + ataque + " de dano da espada potente e derrota o inimigo.");
             System.out.println("Vencya perde 4 pontos de mana ao usar seu poder especial\t - Mana total: " + getPm());
         }
     }
@@ -31,6 +33,9 @@ final public class Vencya extends Personagem implements IPersonagem{
     public void atacar(Inimigo inimigo) {
         int ataque = Dado.rolarDados(1,8) + ataqueAdicional;
         inimigo.setPv(inimigo.getPv()-ataque);
-        System.out.println(inimigo.getNome() + " recebeu " + ataque + " de dano\t - Vida total: " + inimigo.getPv());
+        if (inimigo.getPv() > 0)
+            System.out.println(inimigo.getNome() + " recebeu " + ataque + " de dano\t - Vida total: " + inimigo.getPv());
+        else
+            System.out.println(inimigo.getNome() + " recebeu " + ataque + " de dano e foi derrotado.");
     }
 }
