@@ -2,7 +2,7 @@ final public class Zumbi extends Inimigo implements IObstaculo{
 
 
 
-    public Zumbi(int pv, String nome) {
+    public Zumbi() {
         super(20, "Zumbi");
     }
 

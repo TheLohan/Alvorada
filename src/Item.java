@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public class Item {
     private String nome;
     private String descricao;
@@ -45,4 +47,16 @@ public class Item {
         return true;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Item item = (Item) o;
+        return Objects.equals(nome, item.nome);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(nome);
+    }
 }

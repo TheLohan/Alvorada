@@ -1,5 +1,5 @@
 final public class Necromante extends Inimigo implements IObstaculo{
-    public Necromante(int pv, String nome) {
+    public Necromante() {
         super(30, "Necromante");
     }
 

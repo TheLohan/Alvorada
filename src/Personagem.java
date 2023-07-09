@@ -5,6 +5,7 @@ public abstract class Personagem implements IPersonagem{
     protected int idade;
     protected int pm;
     protected int pv;
+    protected int pecasOuro;
     protected ArrayList<Item> inventario = new ArrayList<>();
 
     public Personagem(String nome, int idade, int pm, int pv) {
@@ -12,6 +13,7 @@ public abstract class Personagem implements IPersonagem{
         setIdade(idade);
         setPm(pm);
         setPv(pv);
+        setPecasOuro(100);
     }
 
     public String getNome() {
@@ -59,6 +61,18 @@ public abstract class Personagem implements IPersonagem{
         return true;
     }
 
+    public int getPecasOuro() {
+        return pecasOuro;
+    }
+
+    public boolean setPecasOuro(int pecasOuro) {
+        if(this.pecasOuro < 0){
+            throw new IllegalArgumentException("Peças de ouro menor que zero");
+        }
+        this.pecasOuro = pecasOuro;
+        return true;
+    }
+
     @Override
     public abstract void contarHistoria();
 
@@ -67,7 +81,15 @@ public abstract class Personagem implements IPersonagem{
 
     @Override
     public void adicionarItem(Item item){
-        inventario.add(item);
+        if(!inventario.contains(item)){
+            inventario.add(item);
+        }
+        else {
+            Item itemClone = inventario.get(inventario.indexOf(item));
+            inventario.remove(item);
+            itemClone.setQuantidade(itemClone.getQuantidade() + 1);
+            inventario.add(itemClone);
+        }
     }
 
     public abstract void atacar(Inimigo inimigo);

@@ -8,7 +8,7 @@ final public class Esqueleto extends Inimigo implements IObstaculo{
     public void interageComPersonagem(Personagem personagem) {
         ataque = dado.nextInt(1, 4);
         personagem.pv -= ataque;
-        System.out.println(personagem.getNome() + " recebeu " + ataque + " de dano\t - Vida total: " + personagem.getPv() + "\n");
+        System.out.println(personagem.getNome() + " recebeu " + ataque + " de dano\nVida total: " + personagem.getPv() + "\n");
     }
 
     @Override

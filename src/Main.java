@@ -7,18 +7,9 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         Personagem dorivan = new Dorivan();
         Personagem vencya = new Vencya();
-        Inimigo esqueleto = new Esqueleto();
-
-        System.out.println("   ▄████████  ▄█        ▄█    █▄   ▄██████▄     ▄████████    ▄████████ ████████▄     ▄████████ \n" +
-                            "  ███    ███ ███       ███    ███ ███    ███   ███    ███   ███    ███ ███   ▀███   ███    ███ \n" +
-                            "  ███    ███ ███       ███    ███ ███    ███   ███    ███   ███    ███ ███    ███   ███    ███ \n" +
-                            "  ███    ███ ███       ███    ███ ███    ███  ▄███▄▄▄▄██▀   ███    ███ ███    ███   ███    ███ \n" +
-                            "▀███████████ ███       ███    ███ ███    ███ ▀▀███▀▀▀▀▀   ▀███████████ ███    ███ ▀███████████ \n" +
-                            "  ███    ███ ███       ███    ███ ███    ███ ▀███████████   ███    ███ ███    ███   ███    ███ \n" +
-                            "  ███    ███ ███▌    ▄ ███    ███ ███    ███   ███    ███   ███    ███ ███   ▄███   ███    ███ \n" +
-                            "  ███    █▀  █████▄▄██  ▀██████▀   ▀██████▀    ███    ███   ███    █▀  ████████▀    ███    █▀  \n" +
-                            "             ▀                                 ███    ███                                      \n");
-
+        Esqueleto esqueleto = new Esqueleto();
+        Zumbi zumbi = new Zumbi();
+        Necromante necromante = new Necromante();
 
         //História do jogo
         System.out.println("A Vila de Yu’Myriin, é o mais recente alvo das grandes hordas de mortos-vivos que têm " +
@@ -58,18 +49,18 @@ public class Main {
             }
         } while (erro);
 
+        System.out.println("O prefeito lhe deu 100 peças de ouro adiantado para você se preparar. O que quer comprar?");
+        System.out.println("Espada aprimirada - Concede +2 de dano - 50 Peças de Ouro");
+        System.out.println("Armadura aprimorada - Ignora 2 de dano - 80 Peças de Ouro");
+        System.out.println("Poção de Cura - Cura 1d6 de vida - 20 Peças de Ouro");
+        System.out.println("Poção de mana - Restaura 1d4 de mana - 20 Peças de ouro");
+
         switch (escolhaPersonagem){
             case 1:
-                esqueleto.contaHistoria(vencya);
-                esqueleto.interageComPersonagem(vencya);
-                vencya.atacar(esqueleto);
-                vencya.poderEspecial(esqueleto);
+                new Jogo(esqueleto, zumbi, necromante, vencya).start();
                 break;
             case 2:
-                esqueleto.contaHistoria(dorivan);
-                esqueleto.interageComPersonagem(dorivan);
-                dorivan.poderEspecial(esqueleto);
-                dorivan.atacar(esqueleto);
+                new Jogo(esqueleto, zumbi, necromante, dorivan).start();
                 break;
         }
     }
