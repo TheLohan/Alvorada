@@ -53,6 +53,7 @@ final public class Jogo {
     }
 
     public static void comprarItem(Personagem personagem){
+        boolean erro;
         int escolha = 1;
         System.out.println("\nO prefeito lhe deu 100 peças de ouro adiantado para você se preparar. O que quer comprar?");
         System.out.println("1 - Espada aprimorada - Concede +2 de dano - 60 Peças de Ouro");
@@ -61,43 +62,63 @@ final public class Jogo {
         System.out.println("4 - Poção de mana - Restaura 2d4 de mana - 10 Peças de ouro");
         System.out.println("Digide 0 se quiser parar de comprar");
         do{
-            System.out.println("\nPeças de ouro restantes: " + personagem.getPecasOuro());
-            System.out.println("Vou querer: ");
-            escolha = scanner.nextInt();
-            switch (escolha) {
-                case 1 -> personagem.adicionarItem(new Espada());
-                case 2 -> personagem.adicionarItem(new Armadura());
-                case 3 -> personagem.adicionarItem(new PocaoCura());
-                case 4 -> personagem.adicionarItem(new PocaoMana());
+            erro = false;
+            try {
+                System.out.println("\nPeças de ouro restantes: " + personagem.getPecasOuro());
+                System.out.println("Vou querer: ");
+                escolha = scanner.nextInt();
+                switch (escolha) {
+                    case 1 -> personagem.adicionarItem(new Espada());
+                    case 2 -> personagem.adicionarItem(new Armadura());
+                    case 3 -> personagem.adicionarItem(new PocaoCura());
+                    case 4 -> personagem.adicionarItem(new PocaoMana());
+                }
+            }catch (InputMismatchException e){
+                scanner.nextLine();
+                System.out.println("Entrada inválida");
+                erro = true;
+            }catch (Exception e){
+                System.out.println("Erro");
+                erro = true;
             }
-        }while(personagem.getPecasOuro() >= 10 && escolha != 0);
+        }while((personagem.getPecasOuro() >= 10 && escolha != 0) || erro);
     }
     public static void start(Esqueleto esqueleto, Zumbi zumbi, Necromante necromante, Personagem personagem){
-        boolean foiSucesso = true;
+        boolean foiSucesso = true, erro;
         Inimigo[] inimigos = {esqueleto, zumbi, necromante};
         int escolha;
         for(int i = 0; i < 3; i++){
             inimigos[i].contaHistoria(personagem);
             do{
-                System.out.println("Digite 1 para atacar\nDigite 2 para usar o poder especial\nDigite 3 para usar um item");
-                do{
-                    escolha = scanner.nextInt();
-                }while (escolha != 1 && escolha != 2 && escolha != 3);
-                if(escolha == 1){
-                    personagem.atacar(inimigos[i]);
-                }
-                if(escolha == 2){
-                    personagem.poderEspecial(inimigos[i]);
-                }
-                if(escolha == 3){
-                    personagem.usarItem();
-                }
-                if(inimigos[i].getPv() > 0){
-                    inimigos[i].interageComPersonagem(personagem);
-                }
-                if(personagem.getPv() < 0){
-                    foiSucesso = false;
-                    break;
+                erro = false;
+                try {
+                    System.out.println("Digite 1 para atacar\nDigite 2 para usar o poder especial\nDigite 3 para usar um item");
+                    do {
+                        escolha = scanner.nextInt();
+                    } while (escolha != 1 && escolha != 2 && escolha != 3);
+                    if (escolha == 1) {
+                        personagem.atacar(inimigos[i]);
+                    }
+                    if (escolha == 2) {
+                        personagem.poderEspecial(inimigos[i]);
+                    }
+                    if (escolha == 3) {
+                        personagem.usarItem();
+                    }
+                    if (inimigos[i].getPv() > 0) {
+                        inimigos[i].interageComPersonagem(personagem);
+                    }
+                    if (personagem.getPv() < 0) {
+                        foiSucesso = false;
+                        break;
+                    }
+                }catch (InputMismatchException e){
+                    scanner.nextLine();
+                    System.out.println("Entrada inválida");
+                    erro = true;
+                }catch (Exception e){
+                    System.out.println("Erro");
+                    erro = true;
                 }
             }while(inimigos[i].getPv() > 0);
             if(!foiSucesso){

@@ -14,9 +14,6 @@ public class Dorivan extends Personagem implements IPersonagem{
     @Override
     public void poderEspecial(Inimigo inimigo) {
         int cura = Dado.rolarDados(1,4);
-        if(getPv()+cura > 25){
-            cura = getPv() + cura;
-        }
         setPv(getPv() + cura);
         setPm(this.pm - 5);
         System.out.println("Dorivan recebe " + cura + " ponto(s) de vida após se benzer\t - Vida total: " + getPv() +
